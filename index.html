@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f3bd24">
+    <title>El Mercado de los Datos</title>
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <link rel="apple-touch-icon" href="logo.svg">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="splash-screen" class="splash-screen" role="status" aria-live="polite" aria-label="Cargando El Mercado de los Datos">
+        <div class="splash-glow splash-glow-one" aria-hidden="true"></div>
+        <div class="splash-glow splash-glow-two" aria-hidden="true"></div>
+        <div class="splash-content">
+            <div class="splash-logo-wrap">
+                <span class="splash-logo-orbit splash-logo-orbit-one" aria-hidden="true"></span>
+                <span class="splash-logo-orbit splash-logo-orbit-two" aria-hidden="true"></span>
+                <img class="splash-logo" src="logo.svg" alt="">
+            </div>
+            <p class="splash-eyebrow">Aprende · decide · compite</p>
+            <h1 class="splash-title">El Mercado <span>de los Datos</span></h1>
+            <p class="splash-subtitle">Un juego de estrategia estadística</p>
+            <div class="splash-members">
+                <p class="splash-members-label">Integrantes</p>
+                <p class="splash-members-list">María Galindo · María Briñez · Dámaris Castellar · Katerine Vega · Leidy casseres · Valerin Pérez · Andrea Pertuz · Katty Palacios · Esteban Ricardo</p>
+            </div>
+            <div class="splash-loader" role="presentation">
+                <div class="splash-loader-track"><span class="splash-loader-fill"></span></div>
+                <div class="splash-loader-caption"><span>Preparando tu partida</span><span class="splash-loader-dots" aria-hidden="true">···</span></div>
+            </div>
+        </div>
+        <div class="splash-footer" aria-hidden="true"><span></span> FUNDAMENTOS MATEMÁTICOS <span></span></div>
+    </div>
+    <header class="topbar" id="topbar">
+        <a class="topbar-inner brand" href="index.html" aria-label="El Mercado de los Datos: volver al inicio">
+            <img class="brand-mark" src="logo.svg" alt="">
+            <div>El Mercado de los Datos<small>Un juego de estrategia estadística</small></div>
+        </a>
+    </header>
+    <main>
+        <div class="tabs" role="tablist" aria-label="Secciones del juego">
+            <button class="tab active" id="play-tab" role="tab" aria-selected="true" type="button">Jugar</button>
+            <button class="tab" id="teacher-tab" role="tab" aria-selected="false" type="button">Reunir resultados</button>
+        </div>
+
+        <section id="play-view">
+            <div class="hero">
+                <div class="eyebrow">Aprende · decide · compite</div>
+                <h1>¿Qué tan bien lees los datos?</h1>
+                <p>Resuelve 10 retos complejos de estadística, administra tus monedas y comparte tu resultado con tu profesor. Cada quien juega desde su propio celular.</p>
+            </div>
+
+            <section class="panel" id="start-panel">
+                <h2>Tu partida comienza aquí</h2>
+                <p class="subtle">Tendrás 1.000 monedas virtuales y 30 segundos por pregunta. Elige una respuesta y apuesta al menos 100 monedas: las respuestas correctas suman puntos; una respuesta incorrecta o el tiempo agotado pierde las monedas apostadas. Si tu saldo es menor, podrás apostar 100 y quedará negativo si pierdes. Si el tiempo termina, quedará registrada como pregunta sin responder.</p>
+                <label for="player-name">Tu nombre</label>
+                <input id="player-name" maxlength="32" autocomplete="name" placeholder="Escribe tu nombre">
+                <section class="player-profile" id="player-profile" aria-live="polite">
+                    <h3>Tu perfil en este dispositivo</h3>
+                    <p class="notice" id="player-profile-message">Escribe tu nombre para consultar tus partidas guardadas.</p>
+                    <div class="player-profile-stats hidden" id="player-profile-stats"></div>
+                </section>
+                <div class="power-selection">
+                    <div class="power-selection-heading">
+                        <div>
+                            <h3>Elige tus poderes</h3>
+                            <p class="notice">Selecciona 3. Cada poder se usa una vez por partida.</p>
+                        </div>
+                        <span class="power-count" id="power-count" aria-live="polite">0 / 3</span>
+                    </div>
+                    <div id="power-picker" class="power-picker"></div>
+                    <details class="locked-powers">
+                        <summary>3 poderes requieren una sala conectada</summary>
+                        <p>Regalo, Ventaja colectiva e Interferencia afectan a otros estudiantes; se habilitarán cuando el juego tenga un servidor compartido.</p>
+                    </details>
+                </div>
+                <button class="primary full" id="start-button" type="button" disabled>Comenzar partida</button>
+                <p class="notice">No necesitas crear una cuenta. Al terminar, comparte el enlace de resultado con tu profesor para que lo agregue a la tabla de la clase.</p>
+            </section>
+
+            <section class="panel hidden" id="game-panel" aria-live="polite"></section>
+            <section class="panel hidden" id="result-panel" aria-live="polite"></section>
+        </section>
+
+        <section class="hidden" id="teacher-view">
+            <div class="hero">
+                <div class="eyebrow">Consolidado de la clase</div>
+                <h1>Reunir resultados</h1>
+                <p>Cada estudiante comparte su enlace corto al terminar. Péguelo aquí para agregar la partida y ver la clasificación y el detalle de respuestas en este dispositivo. También se aceptan códigos de partidas anteriores.</p>
+            </div>
+            <section class="panel">
+                <h2>Agregar partidas</h2>
+                <p class="subtle">Pegue aquí el enlace que comparta cada estudiante: al pegarlo, la tabla se actualiza automáticamente. Se registra la posición por puntaje y el detalle de cada pregunta en orden, con aciertos, errores, tiempos, preguntas sin responder y poderes utilizados. Los resultados se guardan en este dispositivo.</p>
+                <label for="result-codes">Enlaces o códigos compartidos por los estudiantes</label>
+                <textarea id="result-codes" rows="5" placeholder="Pegue uno o varios enlaces aquí; la tabla se actualizará automáticamente"></textarea>
+                <div class="actions">
+                    <button class="primary" id="add-results" type="button">Agregar a la tabla</button>
+                    <button class="secondary" id="export-results" type="button">Descargar tabla CSV</button>
+                    <button class="danger" id="clear-results" type="button">Borrar tabla guardada</button>
+                </div>
+                <p id="import-message" class="notice" role="status"></p>
+            </section>
+            <section class="panel">
+                <h2>Clasificación</h2>
+                <div id="leaderboard"></div>
+                <p class="notice">Clasificación por puntaje; desempates: mayor precisión, más monedas y más respuestas correctas. El detalle de respuestas muestra el orden, resultado y tiempo de cada pregunta. Los resultados reunidos se guardan solo en este dispositivo.</p>
+            </section>
+        </section>
+        <footer>El Mercado de los Datos · Fundamentos Matemáticos</footer>
+    </main>
+    <div id="game-reaction" class="game-reaction hidden" aria-live="polite" aria-atomic="true">
+        <span class="reaction-sparkle reaction-sparkle-one" aria-hidden="true">✦</span>
+        <span class="reaction-sparkle reaction-sparkle-two" aria-hidden="true">✧</span>
+        <span id="reaction-emoji" class="reaction-emoji" role="img"></span>
+        <span id="reaction-caption" class="reaction-caption"></span>
+    </div>
+    <div id="toast" class="toast hidden" role="status"></div>
+
+    <script src="index.js" defer></script>
+</body>
+</html>
